@@ -1,7 +1,13 @@
 package com.demo.mongodb.entity;
 
 import org.springframework.data.annotation.Id;
+
 import org.springframework.data.mongodb.core.mapping.Document;
+import static com.demo.mongodb.util.Constants.*;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+
 
 
 @Document(collection = "traineeDB")
@@ -9,7 +15,9 @@ public class Trainee {
 
 	@Id
 	private long id;
+	
 	private String name;
+	
 	private String location;
 
 	public Trainee() {
