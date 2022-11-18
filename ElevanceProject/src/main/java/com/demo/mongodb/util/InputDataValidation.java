@@ -1,10 +1,22 @@
 package com.demo.mongodb.util;
 
+import java.util.Date;
+
 public class InputDataValidation {
 
 	
 	public static boolean isNotAlpha(String s) {
 	    return !(s.matches("^[a-zA-Z]*$"));
+	}
+	
+	public static boolean isNotValidDate(String jd, String td) {
+		
+		if ((jd.matches("\\d{4}-\\d{2}-\\d{2}"))&&
+				td.matches("\\d{4}-\\d{2}-\\d{2}"))
+			
+			return false;
+		else 
+			return true;
 	}
 	
 	
@@ -40,5 +52,11 @@ public class InputDataValidation {
 			return false;
 	}
 	
+	public static boolean isNotValidString(String s) {
+		if((s.isBlank())||s.isEmpty()||isNotAlpha(s))
+			return true;
+		else
+			return false;
+	}
 	
 }

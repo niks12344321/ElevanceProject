@@ -21,8 +21,7 @@ public final class Constants {
 	public static final String NAMEPATTERNERROR = "NO such Trainee with the pattern found in name";
 	public static final String DELETERROR = "ID not found, hence unable to delete";
 	
-	public static final String REQUIRED = " - is required and cannot be empty";
-	public static final String NAMEFORM = " The name field must contain only characters";
-	public static final String LOCATIONFORM = " The location field must contain only characters";
-
+	public static final String REQUIRED = " - is required and must contain only characters ";
+	
+	public static final String INVALIDATE = " Date must be of the format dd/mm/yyyy";
 }
