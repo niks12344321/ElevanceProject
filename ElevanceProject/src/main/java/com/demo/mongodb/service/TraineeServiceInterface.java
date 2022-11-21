@@ -1,26 +1,26 @@
-package com.demo.mongodb.repository;
+package com.demo.mongodb.service;
 
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import com.demo.mongodb.entity.Trainee;
-import com.demo.mongodb.service.TraineeResponse;
+import com.demo.mongodb.dto.TraineeResponse;
+import com.demo.mongodb.entity.TraineeDAO;
 
-public interface ServiceRepository {
+public interface TraineeServiceInterface {
 	
-	ResponseEntity<Trainee> createTrainee(Trainee t);
+	ResponseEntity<TraineeDAO> createTrainee(TraineeDAO t);
 	
-	ResponseEntity<Trainee> updateTrainee(Trainee t);
+	ResponseEntity<TraineeDAO> updateTrainee(TraineeDAO t);
 	
 	ResponseEntity<TraineeResponse> getAllTrainees();
 	
-	ResponseEntity<Optional<Trainee>> getTraineebyID(long id);
+	ResponseEntity<Optional<TraineeDAO>> getTraineebyID(long id);
 	
-	ResponseEntity<TraineeResponse> getAllTraineesPages(int pnum, int psize,int dir, String v);
+	ResponseEntity<TraineeResponse> getAllTraineesPages(int pnum, int psize,String dir, String v);
 	
-	ResponseEntity<TraineeResponse>  getSortedTrainees(int dir,String v);
+	ResponseEntity<TraineeResponse>  getSortedTrainees(String dir,String v);
 	
 	ResponseEntity<TraineeResponse> getTraineesGreaterThan(int gt);
 	

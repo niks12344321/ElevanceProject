@@ -1,7 +1,5 @@
 package com.demo.mongodb.util;
 
-import java.util.Date;
-
 public class InputDataValidation {
 
 	
@@ -45,11 +43,16 @@ public class InputDataValidation {
 			return false;
 	}
 	
-	public static boolean dirnValidation(int n) {
-		if((n!=-1)&&(n!=1))
+	public static boolean dirnValidation(String s) {
+		if((s.isBlank())||s.isEmpty()||isNotAlpha(s))
 			return true;
-		else
-			return false;
+		
+		else {
+			if((s.equalsIgnoreCase("ASC"))||(s.equalsIgnoreCase("DESC")))
+				return false;
+			else
+				return true;
+		}
 	}
 	
 	public static boolean isNotValidString(String s) {
@@ -58,5 +61,13 @@ public class InputDataValidation {
 		else
 			return false;
 	}
+	
+	public static boolean isNotValidNumber(String n) {
+		if(n.matches("[1-9][0-9]*"))
+			return false;
+		else
+			return true;
+	}
+
 	
 }

@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.demo.mongodb.entity.Trainee;
+import com.demo.mongodb.entity.TraineeDAO;
 
 /**
  * @author nikhilgupta2
@@ -17,19 +17,19 @@ import com.demo.mongodb.entity.Trainee;
  */
 
 @Repository
-public interface TraineeRepository extends MongoRepository<Trainee, Long> {
+public interface TraineeRepository extends MongoRepository<TraineeDAO, Long> {
 
-	List<Trainee> findByIdGreaterThan(int gt);
+	List<TraineeDAO> findByIdGreaterThan(int gt);
 	
-	List<Trainee> findByName(String name);
+	List<TraineeDAO> findByName(String name);
 	
-	List<Trainee> findByNameAndLocation(String name, String location);
+	List<TraineeDAO> findByNameAndLocation(String name, String location);
 
-	List<Trainee> findByNameLike(String expr);
+	List<TraineeDAO> findByNameLike(String expr);
 	
 	int countByName(String nam);
 	
 	@Query(value="{ 'name' : ?0 }",fields="{ 'location' : 1}")
-	List<Trainee> findByNameIncludeLocation(String name);
+	List<TraineeDAO> findByNameIncludeLocation(String name);
 
 }
