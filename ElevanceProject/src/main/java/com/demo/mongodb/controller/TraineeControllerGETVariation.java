@@ -3,12 +3,10 @@
  */
 package com.demo.mongodb.controller;
 
-import static com.demo.mongodb.util.Constants.DIRERROR;
-import static com.demo.mongodb.util.Constants.NUMBERFORM;
-import static com.demo.mongodb.util.Constants.REQUIRED;
-import static com.demo.mongodb.util.InputDataValidation.dirnValidation;
-import static com.demo.mongodb.util.InputDataValidation.isNotValidNumber;
-import static com.demo.mongodb.util.InputDataValidation.isNotValidString;
+import static com.demo.mongodb.util.Constants.*;
+import static com.demo.mongodb.util.InputDataValidation.*;
+
+import java.time.LocalDate;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -66,12 +64,11 @@ public class TraineeControllerGETVariation {
 		TraineeResponse response=new TraineeResponse();
 
 		try {
-			if(isNotValidNumber(gt))
+			if(isValidNumber(gt))
+				return service.getTraineesGreaterThan(Integer.parseInt(gt));
+			else
 				throw new IllegalArgumentException(NUMBERFORM);
-			
-			int greaterthan = Integer.parseInt(gt);
-
-			return service.getTraineesGreaterThan(greaterthan);
+		
 		}
 		catch(IllegalArgumentException e)
 			{
@@ -79,6 +76,30 @@ public class TraineeControllerGETVariation {
 				return new ResponseEntity<>(response,HttpStatus.BAD_REQUEST);
 			}
 	}
+	
+	// Get trainees with Dates greater than x
+		@GetMapping("/traineeGreaterThanDate/{date}")
+		private ResponseEntity<TraineeResponse> getTraineeGreaterDate(@PathVariable String date) {
+
+			TraineeResponse response=new TraineeResponse();
+
+			try {
+				if(isValidDate(date))
+				{
+					LocalDate dat = LocalDate.parse(date);
+					
+					return service.getTraineesGreaterThanDate(dat);
+				}
+				else
+					throw new IllegalArgumentException(INVALIDATE);
+			
+			}
+			catch(IllegalArgumentException e)
+				{
+					logger.error(e.getMessage());
+					return new ResponseEntity<>(response,HttpStatus.BAD_REQUEST);
+				}
+		}
 
 	// Get trainees by Name
 	@GetMapping("/traineeByName/{name}")
@@ -87,9 +108,10 @@ public class TraineeControllerGETVariation {
 		TraineeResponse response=new TraineeResponse();
 		
 		try {
-			if(isNotValidString(name))
+			if(isValidString(name))
+				return service.getTraineeByName(name);
+			else
 				throw new IllegalArgumentException("name " + REQUIRED);
-			return service.getTraineeByName(name);
 		}
 		catch (IllegalArgumentException e) {
 			logger.error(e.getMessage());
@@ -105,9 +127,10 @@ public class TraineeControllerGETVariation {
 		TraineeResponse response=new TraineeResponse();
 
 		try {
-			if(isNotValidString(name))
+			if(isValidString(name))
+				return service.getTraineeByNameDispLoc(name);
+			else
 				throw new IllegalArgumentException("name " + REQUIRED);
-			return service.getTraineeByNameDispLoc(name);
 		}
 		catch(IllegalArgumentException e)
 			{
@@ -122,9 +145,10 @@ public class TraineeControllerGETVariation {
 		TraineeResponse response=new TraineeResponse();
 
 		try {
-			if((isNotValidString(name)||(isNotValidString(loc))))
+			if((isValidString(name)&&(isValidString(loc))))
+				return service.getTraineeByNameAndLocation(name,loc);
+			else
 				throw new IllegalArgumentException("name and location" + REQUIRED);
-			return service.getTraineeByNameAndLocation(name,loc);
 		}
 		catch (IllegalArgumentException e) {
 			logger.error(e.getMessage());
@@ -134,10 +158,21 @@ public class TraineeControllerGETVariation {
 	}
 	
 	// Get trainees by Name Like
-	@GetMapping("/traineeByNameRegex/	{expr}")
+	@GetMapping("/traineeByNameRegex/{expr}")
 	private ResponseEntity<TraineeResponse> getTraineewithNameregex(@PathVariable String expr) {
 
-		return service.getTraineeByNameContaining(expr);
+		try{
+			if(isValidString(expr))
+				return service.getTraineeByNameContaining(expr);
+			else
+				throw new IllegalArgumentException("Expression " + REQUIRED);
+		}
+		catch(IllegalArgumentException e)
+		{
+			logger.error(e.getMessage());
+			return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+		}	
+		
 	}
 	
 	// Get trainee count by Name
@@ -145,9 +180,10 @@ public class TraineeControllerGETVariation {
 	private int getTraineeCountThroughName(@PathVariable String name) {
 
 		try {
-			if(isNotValidString(name))
+			if(isValidString(name))
+				return service.getTraineeCountByName(name);
+			else
 				throw new IllegalArgumentException("name " + REQUIRED);
-			return service.getTraineeCountByName(name);
 		} 
 		catch (IllegalArgumentException e) {
 			logger.error(e.getMessage());

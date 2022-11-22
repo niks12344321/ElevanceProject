@@ -25,5 +25,5 @@ public final class Constants {
 
 	public static final String REQUIRED = "- is required and must contain only characters ";
 	
-	public static final String INVALIDATE = " Date must be of the format dd/mm/yyyy";
+	public static final String INVALIDATE = " Date must be of the format  yyyy-mm-dd";
 }

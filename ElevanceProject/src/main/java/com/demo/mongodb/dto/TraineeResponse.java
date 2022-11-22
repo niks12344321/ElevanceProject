@@ -9,13 +9,13 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.NON_NULL)
 public class TraineeResponse {
 	
-	private List<TraineeDAO> traineesList=null;
+	private List<TraineeDTO> traineesList=null;
 
-	public List<TraineeDAO> getTraineesList() {
+	public List<TraineeDTO> getTraineesList() {
 		return traineesList;
 	}
 
-	public void setTraineesList(List<TraineeDAO> traineesList) {
+	public void setTraineesList(List<TraineeDTO> traineesList) {
 		this.traineesList = traineesList;
 	}
 }

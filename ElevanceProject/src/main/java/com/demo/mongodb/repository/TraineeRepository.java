@@ -3,6 +3,7 @@
  */
 package com.demo.mongodb.repository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -20,6 +21,9 @@ import com.demo.mongodb.entity.TraineeDAO;
 public interface TraineeRepository extends MongoRepository<TraineeDAO, Long> {
 
 	List<TraineeDAO> findByIdGreaterThan(int gt);
+	
+	List<TraineeDAO> findByJoinDateGreaterThanEqual(LocalDate joinDate);
+
 	
 	List<TraineeDAO> findByName(String name);
 	
