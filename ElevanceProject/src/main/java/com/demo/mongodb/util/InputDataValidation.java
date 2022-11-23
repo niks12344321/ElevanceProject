@@ -6,20 +6,20 @@ public class InputDataValidation {
 	public static boolean isAlpha(String s) {
 	    return (s!=null&&s.matches("^[a-zA-Z]*$"));
 	}
-	
-	public static boolean isValidDate(String jd, String td) {
-				
-		if ((jd!=null&&jd.matches("\\d{4}-\\d{2}-\\d{2}"))&&(jd!=null&&
-				td.matches("\\d{4}-\\d{2}-\\d{2}")))
-			
-			return true;
-		else 
-			return false;
-	}
+//	
+//	public static boolean isValidDate(String jd, String td) {
+//				
+//		if ((jd!=null&&jd.matches("\\d{4}-\\d{2}-\\d{2}"))&&(jd!=null&&
+//				td.matches("\\d{4}-\\d{2}-\\d{2}")))
+//			
+//			return true;
+//		else 
+//			return false;
+//	}
 	
 	public static boolean isValidDate(String date) {
 		
-		if ((date!=null&&date.matches("\\d{4}-\\d{2}-\\d{2}")))
+		if (date.matches("\\d{4}-\\d{2}-\\d{2}"))
 			return true;
 		else 
 			return false;
@@ -67,6 +67,13 @@ public class InputDataValidation {
 		else
 			return true;
 	}
+	
+//	public static boolean isValidStringNonNull(String s) {
+//		if(isAlpha(s))
+//			return true;
+//		else
+//			return false;
+//	}
 	
 	public static boolean isValidNumber(String n) {
 		if(n.matches("[1-9][0-9]*"))

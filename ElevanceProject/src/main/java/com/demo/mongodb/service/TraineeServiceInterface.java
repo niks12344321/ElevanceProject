@@ -18,7 +18,7 @@ public interface TraineeServiceInterface {
 	
 	ResponseEntity<TraineeResponse> getAllTrainees();
 	
-	ResponseEntity<Optional<TraineeDAO>> getTraineebyID(long id);
+	ResponseEntity<TraineeResponse> getTraineebyID(long id);
 	
 	ResponseEntity<TraineeResponse> getAllTraineesPages(int pnum, int psize,String dir, String v,Boolean idreq);
 	
@@ -39,5 +39,6 @@ public interface TraineeServiceInterface {
 	int getTraineeCountByName(String nam);
 	
 	ResponseEntity<TraineeResponse> getTraineeByNameDispLoc(String nam);
+
 	
 }

@@ -24,7 +24,6 @@ public interface TraineeRepository extends MongoRepository<TraineeDAO, Long> {
 	
 	List<TraineeDAO> findByJoinDateGreaterThanEqual(LocalDate joinDate);
 
-	
 	List<TraineeDAO> findByName(String name);
 	
 	List<TraineeDAO> findByNameAndLocation(String name, String location);

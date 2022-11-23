@@ -3,10 +3,7 @@
  */
 package com.demo.mongodb.controller;
 
-import static com.demo.mongodb.util.Constants.DIRERROR;
-import static com.demo.mongodb.util.Constants.INVALIDATE;
-import static com.demo.mongodb.util.Constants.NUMBERFORM;
-import static com.demo.mongodb.util.Constants.REQUIRED;
+import static com.demo.mongodb.util.Constants.*;
 import static com.demo.mongodb.util.InputDataValidation.*;
 
 import java.text.ParseException;
@@ -56,7 +53,7 @@ public class TraineeControllerMainCRUD {
 	}
 	
 	@GetMapping("/trainee/{tid}")
-	private ResponseEntity<Optional<TraineeDAO>> getTraineeById(@PathVariable String tid) {
+	private ResponseEntity<TraineeResponse> getTraineeById(@PathVariable String tid) {
 
 		try {
 			if(isValidNumber(tid))
@@ -102,33 +99,41 @@ public class TraineeControllerMainCRUD {
 	
 	@PostMapping("/trainee")
 	public ResponseEntity<TraineeDTO> saveTrainee(@RequestBody TraineeDTO t ) throws ParseException {
-		
+		TraineeDAO newTrainee=new TraineeDAO();
 	
 		try {
-			if(isValidDate(t.getJoinDate(), t.getTestDate()))
-			{
-				if((isValidString(t.getName())&&(isValidString(t.getLocation()))))
-				{
-					if(isValidNumber(t.getId()))
-					{
-						LocalDate jd = LocalDate.parse(t.getJoinDate());
-						LocalDate td = LocalDate.parse(t.getTestDate());
-						
-
-						return service.createTrainee(new TraineeDAO(Long.parseLong(t.getId()),t.getName(),t.getLocation(),
-								jd,td));
-					}
-					else
-						throw new IllegalArgumentException(NUMBERFORM);
-				}
+			if(t.getJoinDate()!=null) {
+				if(isValidDate(t.getJoinDate()))
+					newTrainee.setJoinDate(LocalDate.parse(t.getJoinDate()));
 				else
-					throw new IllegalArgumentException("name and location" + REQUIRED);
+					throw new IllegalArgumentException(INVALIDATE);
 			}
-			else
-				throw new IllegalArgumentException(INVALIDATE);
+			if(t.getTestDate()!=null) {
+				if(isValidDate(t.getTestDate()))
+					newTrainee.setTestDate(LocalDate.parse(t.getTestDate()));
+				else
+					throw new IllegalArgumentException(INVALIDATE);
+			}
 
-			//SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+			if(t.getName()!=null) {
+				if(isValidString(t.getName()))
+					newTrainee.setName(t.getName());
+				else
+					throw new IllegalArgumentException("name" + STRINGINCORRECT);
+			}
+			if(t.getLocation()!=null) {
+				if(isValidString(t.getLocation()))
+					newTrainee.setLocation(t.getLocation());
+				else
+					throw new IllegalArgumentException("location" + STRINGINCORRECT);
+			}
 			
+			if(isValidNumber(t.getId()))
+				newTrainee.setId(Long.parseLong(t.getId()));
+			else
+				throw new IllegalArgumentException(NUMBERFORM);
+
+			return service.createTrainee(newTrainee);
 		}
 		catch(IllegalArgumentException|DateTimeParseException e){
 			logger.error(e.getMessage());
@@ -139,29 +144,41 @@ public class TraineeControllerMainCRUD {
 	@PutMapping("/trainee")
 	private ResponseEntity<TraineeDTO> updateTrainee(@RequestBody TraineeDTO t ) {
 		
-		try {
-			if(isValidDate(t.getJoinDate(), t.getTestDate()))
-			{
-				if((isValidString(t.getName())&&(isValidString(t.getLocation()))))
-				{
-					if(isValidNumber(t.getId()))
-					{
-						LocalDate jd = LocalDate.parse(t.getJoinDate());
-						LocalDate td = LocalDate.parse(t.getTestDate());
-						
-						Long tid = Long.parseLong(t.getId());
+		TraineeDAO newTrainee=new TraineeDAO();
 
-						return service.updateTrainee(new TraineeDAO(tid,t.getName(),t.getLocation(),
-								jd,td));
-					}
-					else
-						throw new IllegalArgumentException(NUMBERFORM);
-				}
+		try {
+			if(t.getJoinDate()!=null) {
+				if(isValidDate(t.getJoinDate()))
+					newTrainee.setJoinDate(LocalDate.parse(t.getJoinDate()));
 				else
-					throw new IllegalArgumentException("name and location" + REQUIRED);
+					throw new IllegalArgumentException(INVALIDATE);
 			}
+			if(t.getTestDate()!=null) {
+				if(isValidDate(t.getTestDate()))
+					newTrainee.setTestDate(LocalDate.parse(t.getTestDate()));
+				else
+					throw new IllegalArgumentException(INVALIDATE);
+			}
+			
+			if(t.getName()!=null) {
+				if(isValidString(t.getName()))
+					newTrainee.setName(t.getName());
+				else
+					throw new IllegalArgumentException("name" + STRINGINCORRECT);
+			}
+			if(t.getLocation()!=null) {
+				if(isValidString(t.getLocation()))
+					newTrainee.setLocation(t.getLocation());
+				else
+					throw new IllegalArgumentException("location" + STRINGINCORRECT);
+			}
+			
+			if(isValidNumber(t.getId()))
+				newTrainee.setId(Long.parseLong(t.getId()));
 			else
-				throw new IllegalArgumentException(INVALIDATE);
+				throw new IllegalArgumentException(NUMBERFORM);
+
+			return service.updateTrainee(newTrainee);
 		}
 		catch(IllegalArgumentException|DateTimeParseException e){
 			logger.error(e.getMessage());

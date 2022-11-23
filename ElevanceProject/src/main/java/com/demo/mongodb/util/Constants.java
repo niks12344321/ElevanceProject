@@ -23,6 +23,8 @@ public final class Constants {
 	public static final String CREATIONFAILURERROR = "Unable to create the resource due to internal server error.";
 	public static final String NUMBERFORM = "Input Values cannot be lesser than 0 and must contain only digits";
 
+	public static final String STRINGINCORRECT = "- must contain only characters ";
+
 	public static final String REQUIRED = "- is required and must contain only characters ";
 	
 	public static final String INVALIDATE = " Date must be of the format  yyyy-mm-dd";
