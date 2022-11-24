@@ -34,7 +34,7 @@ public interface TraineeServiceInterface {
 	
 	ResponseEntity<TraineeResponse> getTraineeByNameContaining(String expr);
 	
-	HttpStatus deleteTraineebyID(long id);
+	ResponseEntity<String> deleteTraineebyID(long id);
 	
 	int getTraineeCountByName(String nam);
 	

@@ -3,13 +3,18 @@
  */
 package com.demo.mongodb.controller;
 
-import static com.demo.mongodb.util.Constants.*;
-import static com.demo.mongodb.util.InputDataValidation.*;
+import static com.demo.mongodb.util.Constants.DIRERROR;
+import static com.demo.mongodb.util.Constants.INVALIDATE;
+import static com.demo.mongodb.util.Constants.NUMBERFORM;
+import static com.demo.mongodb.util.Constants.STRINGINCORRECT;
+import static com.demo.mongodb.util.InputDataValidation.dirnValidation;
+import static com.demo.mongodb.util.InputDataValidation.isValidDate;
+import static com.demo.mongodb.util.InputDataValidation.isValidNumber;
+import static com.demo.mongodb.util.InputDataValidation.isValidString;
 
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
-import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -195,18 +200,20 @@ public class TraineeControllerMainCRUD {
 	
 	
 	@DeleteMapping("/trainee/{tid}")
-	private void  deleteTrainee(@PathVariable String tid) {
+	private ResponseEntity<String>  deleteTrainee(@PathVariable String tid) {
 		
 		try {
 			if(isValidNumber(tid))
-				service.deleteTraineebyID(Long.parseLong(tid));
+				return service.deleteTraineebyID(Long.parseLong(tid));
 			else
-				throw new IllegalArgumentException(NUMBERFORM);			
+				throw new IllegalArgumentException(NUMBERFORM);
 		}
 		catch(IllegalArgumentException e)
 		{
 			logger.error(e.getMessage());
+			return new ResponseEntity<String>("Invalid input format", HttpStatus.BAD_REQUEST);
 		}
+		
 	}
 
 }

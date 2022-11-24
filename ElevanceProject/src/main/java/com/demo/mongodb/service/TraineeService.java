@@ -68,6 +68,7 @@ public class TraineeService implements TraineeServiceInterface {
 			}
 
 			else {
+				tReturn = setDTO(traineedao);
 				return new ResponseEntity<>(tReturn, HttpStatus.OK);
 			}
 		} catch (DataRetrievalFailureException e) {
@@ -379,7 +380,7 @@ public class TraineeService implements TraineeServiceInterface {
 	}
 
 	@Override
-	public HttpStatus deleteTraineebyID(long id) {
+	public ResponseEntity<String> deleteTraineebyID(long id) {
 
 		try {
 			if (isNegativeId(id))
@@ -387,12 +388,13 @@ public class TraineeService implements TraineeServiceInterface {
 			if (trepo.findById(id).isPresent()) {
 				trepo.deleteById(id);
 				logger.info("Deleted Successfully");
-				return HttpStatus.OK;
+				return new ResponseEntity<String>("Deleted Successfully",HttpStatus.OK);
 			} else
 				throw new NoSuchElementException(DELETERROR);
 		} catch (NoSuchElementException e) {
 			logger.error(e.getMessage());
-			return HttpStatus.BAD_REQUEST;
+			return new ResponseEntity<String>(DELETERROR,HttpStatus.BAD_REQUEST);
+
 		}
 	}
 
