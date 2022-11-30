@@ -19,6 +19,7 @@ import java.time.format.DateTimeParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -42,7 +43,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
  *
  */
 @RestController
-@RequestMapping("/CRUDoperations")
+@RequestMapping("CRUDoperations")
 @JsonInclude(Include.NON_NULL)
 public class TraineeControllerMainCRUD {
 	
@@ -51,6 +52,9 @@ public class TraineeControllerMainCRUD {
 	
 	@Autowired
 	private TraineeService service;
+	
+	@Autowired
+	private Environment env;
 	
 	@GetMapping("/trainee")
 	public ResponseEntity<TraineeResponse> getTrainees() {
@@ -64,7 +68,7 @@ public class TraineeControllerMainCRUD {
 			if(isValidNumber(tid))
 				return service.getTraineebyID(Long.parseLong(tid));
 			else
-				throw new IllegalArgumentException(NUMBERFORM);
+				throw new IllegalArgumentException(env.getProperty("IllegalNumberForm"));
 			}
 		catch(IllegalArgumentException e)
 			{
