@@ -40,5 +40,8 @@ public interface TraineeServiceInterface {
 	
 	ResponseEntity<TraineeResponse> getTraineeByNameDispLoc(String nam);
 
+	ResponseEntity<TraineeResponse> getAllTraineesPagesFilter(int pnum, int psize, String sortDirection,
+			String sortParam, int gt);
+
 	
 }

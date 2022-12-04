@@ -28,4 +28,9 @@ public final class Constants {
 	public static final String REQUIRED = "- is required and must contain only characters ";
 	
 	public static final String INVALIDATE = " Date must be of the format  yyyy-mm-dd";
+	
+	public static final String TOKENERROR = "Unable to get JWT Token";
+	public static final String TOKENEXPIRE = "JWT Token has expired";
+	
+	public static final String TOKENWARNING = "JWT Token does not begin with Bearer String";
 }

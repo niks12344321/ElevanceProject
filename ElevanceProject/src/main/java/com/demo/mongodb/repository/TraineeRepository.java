@@ -6,6 +6,7 @@ package com.demo.mongodb.repository;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -21,6 +22,8 @@ import com.demo.mongodb.entity.TraineeDAO;
 public interface TraineeRepository extends MongoRepository<TraineeDAO, Long> {
 
 	List<TraineeDAO> findByIdGreaterThan(int gt);
+	
+	List<TraineeDAO> findByIdGreaterThan(int gt,PageRequest pageRequest);
 	
 	List<TraineeDAO> findByJoinDateGreaterThanEqual(LocalDate joinDate);
 

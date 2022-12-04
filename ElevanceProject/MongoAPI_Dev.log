@@ -1,23 +1,249 @@
-2022-11-30 10:04:18.714  INFO 35188 --- [cluster-ClusterId{value='6385d690e7d89d6019cbe12f', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Exception in monitor thread while connecting to server localhost:27017
-
-com.mongodb.MongoSocketReadTimeoutException: Timeout while receiving message
-	at com.mongodb.internal.connection.InternalStreamConnection.translateReadException(InternalStreamConnection.java:696) ~[mongodb-driver-core-4.6.1.jar:na]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:574) ~[mongodb-driver-core-4.6.1.jar:na]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:410) ~[mongodb-driver-core-4.6.1.jar:na]
-	at com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:369) ~[mongodb-driver-core-4.6.1.jar:na]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:221) ~[mongodb-driver-core-4.6.1.jar:na]
-	at com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:157) ~[mongodb-driver-core-4.6.1.jar:na]
-	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
-Caused by: java.net.SocketTimeoutException: Read timed out
-	at java.base/java.net.SocketInputStream.socketRead0(Native Method) ~[na:na]
-	at java.base/java.net.SocketInputStream.socketRead(SocketInputStream.java:115) ~[na:na]
-	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:168) ~[na:na]
-	at java.base/java.net.SocketInputStream.read(SocketInputStream.java:140) ~[na:na]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:110) ~[mongodb-driver-core-4.6.1.jar:na]
-	at com.mongodb.internal.connection.SocketStream.read(SocketStream.java:135) ~[mongodb-driver-core-4.6.1.jar:na]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:713) ~[mongodb-driver-core-4.6.1.jar:na]
-	at com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:571) ~[mongodb-driver-core-4.6.1.jar:na]
-	... 5 common frames omitted
-
-2022-11-30 10:04:18.981  INFO 35188 --- [cluster-ClusterId{value='6385d690e7d89d6019cbe12f', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:4, serverValue:387}] to localhost:27017
-2022-11-30 10:04:18.987  INFO 35188 --- [cluster-ClusterId{value='6385d690e7d89d6019cbe12f', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=17, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=28005700}
+2022-12-05 00:00:51.355  INFO 33796 --- [main] com.demo.mongodb.ApiConnectApplication   : Starting ApiConnectApplication using Java 17.0.4.1 on USHYDNIKHILGU6 with PID 33796 (C:\Users\nikhilgupta2\git\ElevanceProject\ElevanceProject\target\classes started by nikhilgupta2 in C:\Users\nikhilgupta2\git\ElevanceProject\ElevanceProject)
+2022-12-05 00:00:51.370  INFO 33796 --- [main] com.demo.mongodb.ApiConnectApplication   : The following 1 profile is active: "dev"
+2022-12-05 00:00:51.445  INFO 33796 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2022-12-05 00:00:51.446  INFO 33796 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Connect Timeout Exception on Url - http://localhost:8888. Will be trying the next url if available
+2022-12-05 00:00:51.446  WARN 33796 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Could not locate PropertySource ([ConfigServerConfigDataResource@595f4da5 uris = array<String>['http://localhost:8888'], optional = true, profiles = list['dev']]): I/O error on GET request for "http://localhost:8888/apiconnect/dev": Connection refused: no further information; nested exception is java.net.ConnectException: Connection refused: no further information
+2022-12-05 00:00:51.447  INFO 33796 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2022-12-05 00:00:51.447  INFO 33796 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Connect Timeout Exception on Url - http://localhost:8888. Will be trying the next url if available
+2022-12-05 00:00:51.447  WARN 33796 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Could not locate PropertySource ([ConfigServerConfigDataResource@60e949e1 uris = array<String>['http://localhost:8888'], optional = true, profiles = list['dev']]): I/O error on GET request for "http://localhost:8888/apiconnect/dev": Connection refused: no further information; nested exception is java.net.ConnectException: Connection refused: no further information
+2022-12-05 00:00:52.910  INFO 33796 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-12-05 00:00:53.057  INFO 33796 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 139 ms. Found 2 MongoDB repository interfaces.
+2022-12-05 00:00:53.357  INFO 33796 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=dbf9b08e-6129-3af0-98ea-826162f2c7c6
+2022-12-05 00:00:53.979  INFO 33796 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-12-05 00:00:54.039  INFO 33796 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-05 00:00:54.040  INFO 33796 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-05 00:00:54.323  INFO 33796 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-05 00:00:54.324  INFO 33796 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2874 ms
+2022-12-05 00:00:54.881  INFO 33796 --- [main] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.6.1"}, "os": {"type": "Windows", "name": "Windows 10", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Eclipse Adoptium/17.0.4.1+1"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, streamFactoryFactory=null, commandListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsCommandListener@7bfa1eb5], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.Jep395RecordCodecProvider@32b46831]}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='30000 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, sendBufferSize=0}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, sendBufferSize=0}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsConnectionPoolListener@5353dd09], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, contextProvider=null}
+2022-12-05 00:00:54.898  INFO 33796 --- [cluster-rtt-ClusterId{value='638ce75edf406e7a90734bb2', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:500}] to localhost:27017
+2022-12-05 00:00:54.899  INFO 33796 --- [cluster-ClusterId{value='638ce75edf406e7a90734bb2', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:499}] to localhost:27017
+2022-12-05 00:00:54.900  INFO 33796 --- [cluster-ClusterId{value='638ce75edf406e7a90734bb2', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=17, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=34347100}
+2022-12-05 00:00:55.945  INFO 33796 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5bad555b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@41ec4271, org.springframework.security.web.context.SecurityContextPersistenceFilter@396f2724, org.springframework.security.web.header.HeaderWriterFilter@6e0d058a, org.springframework.security.web.authentication.logout.LogoutFilter@52eca410, com.demo.mongodb.config.JwtRequestFilter@43756cb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@28b2e4d8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@24e1e90a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@70aa58e1, org.springframework.security.web.session.SessionManagementFilter@4cadd4d4, org.springframework.security.web.access.ExceptionTranslationFilter@1214c98b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@31183ee2]
+2022-12-05 00:00:56.997  INFO 33796 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-12-05 00:00:57.153  INFO 33796 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-12-05 00:00:57.395  INFO 33796 --- [main] com.demo.mongodb.ApiConnectApplication   : Started ApiConnectApplication in 7.785 seconds (JVM running for 9.213)
+2022-12-05 00:00:58.214  INFO 33796 --- [RMI TCP Connection(8)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-05 00:00:58.215  INFO 33796 --- [RMI TCP Connection(8)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-05 00:00:58.217  INFO 33796 --- [RMI TCP Connection(8)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-12-05 00:02:50.038  WARN 33796 --- [http-nio-8080-exec-1] c.demo.mongodb.config.JwtRequestFilter   : JWT Token does not begin with Bearer String
+2022-12-05 00:15:38.430  INFO 33796 --- [RMI TCP Connection(25)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-12-05 00:15:38.453  INFO 33796 --- [RMI TCP Connection(25)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-12-05 00:15:38.455  INFO 33796 --- [RMI TCP Connection(25)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2022-12-05 00:15:38.463  WARN 33796 --- [RMI TCP Connection(25)-127.0.0.1] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [BufferPoolPruner-1-thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4.1/java.lang.Thread.run(Thread.java:833)
+2022-12-05 00:15:38.464  WARN 33796 --- [RMI TCP Connection(25)-127.0.0.1] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [cluster-ClusterId{value='638ce75edf406e7a90734bb2', description='null'}-localhost:27017] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4.1/sun.nio.ch.Net.poll(Native Method)
+ java.base@17.0.4.1/sun.nio.ch.NioSocketImpl.park(NioSocketImpl.java:181)
+ java.base@17.0.4.1/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:285)
+ java.base@17.0.4.1/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+ java.base@17.0.4.1/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+ java.base@17.0.4.1/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+ java.base@17.0.4.1/java.net.Socket$SocketInputStream.read(Socket.java:966)
+ app//com.mongodb.internal.connection.SocketStream.read(SocketStream.java:110)
+ app//com.mongodb.internal.connection.SocketStream.read(SocketStream.java:135)
+ app//com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:713)
+ app//com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:571)
+ app//com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:410)
+ app//com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:369)
+ app//com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:221)
+ app//com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:157)
+ java.base@17.0.4.1/java.lang.Thread.run(Thread.java:833)
+2022-12-05 00:15:38.465  WARN 33796 --- [RMI TCP Connection(25)-127.0.0.1] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [cluster-rtt-ClusterId{value='638ce75edf406e7a90734bb2', description='null'}-localhost:27017] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4.1/java.lang.Thread.sleep(Native Method)
+ app//com.mongodb.internal.connection.DefaultServerMonitor.waitForNext(DefaultServerMonitor.java:443)
+ app//com.mongodb.internal.connection.DefaultServerMonitor.access$1500(DefaultServerMonitor.java:64)
+ app//com.mongodb.internal.connection.DefaultServerMonitor$RoundTripTimeRunnable.run(DefaultServerMonitor.java:415)
+ java.base@17.0.4.1/java.lang.Thread.run(Thread.java:833)
+2022-12-05 00:15:38.466  WARN 33796 --- [RMI TCP Connection(25)-127.0.0.1] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [MaintenanceTimer-2-thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4.1/java.lang.Thread.run(Thread.java:833)
+2022-12-05 00:16:32.753  INFO 27316 --- [main] com.demo.mongodb.ApiConnectApplication   : Starting ApiConnectApplication using Java 17.0.4.1 on USHYDNIKHILGU6 with PID 27316 (C:\Users\nikhilgupta2\git\ElevanceProject\ElevanceProject\target\classes started by nikhilgupta2 in C:\Users\nikhilgupta2\git\ElevanceProject\ElevanceProject)
+2022-12-05 00:16:32.760  INFO 27316 --- [main] com.demo.mongodb.ApiConnectApplication   : The following 1 profile is active: "dev"
+2022-12-05 00:16:32.818  INFO 27316 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2022-12-05 00:16:32.819  INFO 27316 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Connect Timeout Exception on Url - http://localhost:8888. Will be trying the next url if available
+2022-12-05 00:16:32.819  WARN 27316 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Could not locate PropertySource ([ConfigServerConfigDataResource@595f4da5 uris = array<String>['http://localhost:8888'], optional = true, profiles = list['dev']]): I/O error on GET request for "http://localhost:8888/apiconnect/dev": Connection refused: no further information; nested exception is java.net.ConnectException: Connection refused: no further information
+2022-12-05 00:16:32.820  INFO 27316 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2022-12-05 00:16:32.820  INFO 27316 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Connect Timeout Exception on Url - http://localhost:8888. Will be trying the next url if available
+2022-12-05 00:16:32.820  WARN 27316 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Could not locate PropertySource ([ConfigServerConfigDataResource@60e949e1 uris = array<String>['http://localhost:8888'], optional = true, profiles = list['dev']]): I/O error on GET request for "http://localhost:8888/apiconnect/dev": Connection refused: no further information; nested exception is java.net.ConnectException: Connection refused: no further information
+2022-12-05 00:16:34.181  INFO 27316 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-12-05 00:16:34.311  INFO 27316 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 121 ms. Found 2 MongoDB repository interfaces.
+2022-12-05 00:16:34.597  INFO 27316 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=dbf9b08e-6129-3af0-98ea-826162f2c7c6
+2022-12-05 00:16:35.187  INFO 27316 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-12-05 00:16:35.207  INFO 27316 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-05 00:16:35.208  INFO 27316 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-05 00:16:35.515  INFO 27316 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-05 00:16:35.515  INFO 27316 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2692 ms
+2022-12-05 00:16:36.049  INFO 27316 --- [main] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.6.1"}, "os": {"type": "Windows", "name": "Windows 10", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Eclipse Adoptium/17.0.4.1+1"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, streamFactoryFactory=null, commandListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsCommandListener@6eabe718], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.Jep395RecordCodecProvider@38d525aa]}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='30000 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, sendBufferSize=0}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, sendBufferSize=0}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsConnectionPoolListener@f9b8129], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, contextProvider=null}
+2022-12-05 00:16:36.062  INFO 27316 --- [cluster-ClusterId{value='638ceb0b3142a3085ddd5f82', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:502}] to localhost:27017
+2022-12-05 00:16:36.062  INFO 27316 --- [cluster-rtt-ClusterId{value='638ceb0b3142a3085ddd5f82', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:501}] to localhost:27017
+2022-12-05 00:16:36.063  INFO 27316 --- [cluster-ClusterId{value='638ceb0b3142a3085ddd5f82', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=17, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=31006700}
+2022-12-05 00:16:37.137  INFO 27316 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@26679788, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5cdda548, org.springframework.security.web.context.SecurityContextPersistenceFilter@4cadd4d4, org.springframework.security.web.header.HeaderWriterFilter@eebc0db, org.springframework.security.web.authentication.logout.LogoutFilter@6a9df5, com.demo.mongodb.config.JwtRequestFilter@39afe59f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1f4dd016, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@199806aa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4f2544b0, org.springframework.security.web.session.SessionManagementFilter@5a1c7619, org.springframework.security.web.access.ExceptionTranslationFilter@4627dfda, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7805478c]
+2022-12-05 00:16:38.144  INFO 27316 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-12-05 00:16:38.289  INFO 27316 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-12-05 00:16:38.509  INFO 27316 --- [main] com.demo.mongodb.ApiConnectApplication   : Started ApiConnectApplication in 7.229 seconds (JVM running for 8.607)
+2022-12-05 00:16:39.676  INFO 27316 --- [RMI TCP Connection(8)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-05 00:16:39.677  INFO 27316 --- [RMI TCP Connection(8)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-05 00:16:39.679  INFO 27316 --- [RMI TCP Connection(8)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-12-05 00:16:51.028  WARN 27316 --- [http-nio-8080-exec-1] c.demo.mongodb.config.JwtRequestFilter   : JWT Token does not begin with Bearer String
+2022-12-05 00:27:04.423  INFO 27316 --- [RMI TCP Connection(20)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-12-05 00:27:04.455  INFO 27316 --- [RMI TCP Connection(20)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-12-05 00:27:04.458  INFO 27316 --- [RMI TCP Connection(20)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2022-12-05 00:27:04.468  WARN 27316 --- [RMI TCP Connection(20)-127.0.0.1] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [BufferPoolPruner-1-thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4.1/java.lang.Thread.run(Thread.java:833)
+2022-12-05 00:27:04.469  WARN 27316 --- [RMI TCP Connection(20)-127.0.0.1] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [cluster-ClusterId{value='638ceb0b3142a3085ddd5f82', description='null'}-localhost:27017] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4.1/sun.nio.ch.Net.poll(Native Method)
+ java.base@17.0.4.1/sun.nio.ch.NioSocketImpl.park(NioSocketImpl.java:181)
+ java.base@17.0.4.1/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:285)
+ java.base@17.0.4.1/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+ java.base@17.0.4.1/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+ java.base@17.0.4.1/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+ java.base@17.0.4.1/java.net.Socket$SocketInputStream.read(Socket.java:966)
+ app//com.mongodb.internal.connection.SocketStream.read(SocketStream.java:110)
+ app//com.mongodb.internal.connection.SocketStream.read(SocketStream.java:135)
+ app//com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:713)
+ app//com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:571)
+ app//com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:410)
+ app//com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:369)
+ app//com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:221)
+ app//com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:157)
+ java.base@17.0.4.1/java.lang.Thread.run(Thread.java:833)
+2022-12-05 00:27:04.470  WARN 27316 --- [RMI TCP Connection(20)-127.0.0.1] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [cluster-rtt-ClusterId{value='638ceb0b3142a3085ddd5f82', description='null'}-localhost:27017] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4.1/java.lang.Thread.sleep(Native Method)
+ app//com.mongodb.internal.connection.DefaultServerMonitor.waitForNext(DefaultServerMonitor.java:443)
+ app//com.mongodb.internal.connection.DefaultServerMonitor.access$1500(DefaultServerMonitor.java:64)
+ app//com.mongodb.internal.connection.DefaultServerMonitor$RoundTripTimeRunnable.run(DefaultServerMonitor.java:415)
+ java.base@17.0.4.1/java.lang.Thread.run(Thread.java:833)
+2022-12-05 00:27:04.471  WARN 27316 --- [RMI TCP Connection(20)-127.0.0.1] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [MaintenanceTimer-2-thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4.1/java.lang.Thread.run(Thread.java:833)
+2022-12-05 00:27:10.493  INFO 13428 --- [main] com.demo.mongodb.ApiConnectApplication   : Starting ApiConnectApplication using Java 17.0.4.1 on USHYDNIKHILGU6 with PID 13428 (C:\Users\nikhilgupta2\git\ElevanceProject\ElevanceProject\target\classes started by nikhilgupta2 in C:\Users\nikhilgupta2\git\ElevanceProject\ElevanceProject)
+2022-12-05 00:27:10.499  INFO 13428 --- [main] com.demo.mongodb.ApiConnectApplication   : The following 1 profile is active: "dev"
+2022-12-05 00:27:10.559  INFO 13428 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2022-12-05 00:27:10.560  INFO 13428 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Connect Timeout Exception on Url - http://localhost:8888. Will be trying the next url if available
+2022-12-05 00:27:10.560  WARN 13428 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Could not locate PropertySource ([ConfigServerConfigDataResource@595f4da5 uris = array<String>['http://localhost:8888'], optional = true, profiles = list['dev']]): I/O error on GET request for "http://localhost:8888/apiconnect/dev": Connection refused: no further information; nested exception is java.net.ConnectException: Connection refused: no further information
+2022-12-05 00:27:10.560  INFO 13428 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2022-12-05 00:27:10.560  INFO 13428 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Connect Timeout Exception on Url - http://localhost:8888. Will be trying the next url if available
+2022-12-05 00:27:10.560  WARN 13428 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Could not locate PropertySource ([ConfigServerConfigDataResource@60e949e1 uris = array<String>['http://localhost:8888'], optional = true, profiles = list['dev']]): I/O error on GET request for "http://localhost:8888/apiconnect/dev": Connection refused: no further information; nested exception is java.net.ConnectException: Connection refused: no further information
+2022-12-05 00:27:11.976  INFO 13428 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-12-05 00:27:12.087  INFO 13428 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 102 ms. Found 2 MongoDB repository interfaces.
+2022-12-05 00:27:12.425  INFO 13428 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=dbf9b08e-6129-3af0-98ea-826162f2c7c6
+2022-12-05 00:27:12.991  INFO 13428 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-12-05 00:27:13.008  INFO 13428 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-05 00:27:13.009  INFO 13428 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-05 00:27:13.287  INFO 13428 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-05 00:27:13.288  INFO 13428 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2724 ms
+2022-12-05 00:27:13.819  INFO 13428 --- [main] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.6.1"}, "os": {"type": "Windows", "name": "Windows 10", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Eclipse Adoptium/17.0.4.1+1"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, streamFactoryFactory=null, commandListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsCommandListener@205159dc], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.Jep395RecordCodecProvider@43c0c13a]}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='30000 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, sendBufferSize=0}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, sendBufferSize=0}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsConnectionPoolListener@731db93f], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, contextProvider=null}
+2022-12-05 00:27:13.843  INFO 13428 --- [cluster-ClusterId{value='638ced89c4dd73193b1f3cf1', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:504}] to localhost:27017
+2022-12-05 00:27:13.844  INFO 13428 --- [cluster-rtt-ClusterId{value='638ced89c4dd73193b1f3cf1', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:503}] to localhost:27017
+2022-12-05 00:27:13.844  INFO 13428 --- [cluster-ClusterId{value='638ced89c4dd73193b1f3cf1', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=17, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=42687900}
+2022-12-05 00:27:14.853  INFO 13428 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2d4a0671, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1ab9c735, org.springframework.security.web.context.SecurityContextPersistenceFilter@63c4d16, org.springframework.security.web.header.HeaderWriterFilter@2f8f40cc, org.springframework.security.web.authentication.logout.LogoutFilter@300aa927, com.demo.mongodb.config.JwtRequestFilter@77ea960f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@174b8d0e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4627dfda, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6e4e60f5, org.springframework.security.web.session.SessionManagementFilter@5dce5c03, org.springframework.security.web.access.ExceptionTranslationFilter@252d8df6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@93fb44]
+2022-12-05 00:27:15.931  INFO 13428 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-12-05 00:27:16.148  INFO 13428 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-12-05 00:27:16.383  INFO 13428 --- [main] com.demo.mongodb.ApiConnectApplication   : Started ApiConnectApplication in 7.52 seconds (JVM running for 8.95)
+2022-12-05 00:27:17.464  INFO 13428 --- [RMI TCP Connection(8)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-05 00:27:17.465  INFO 13428 --- [RMI TCP Connection(8)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-05 00:27:17.468  INFO 13428 --- [RMI TCP Connection(8)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-12-05 00:29:06.765  INFO 13428 --- [RMI TCP Connection(11)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-12-05 00:29:06.792  INFO 13428 --- [RMI TCP Connection(11)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-12-05 00:29:06.795  INFO 13428 --- [RMI TCP Connection(11)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2022-12-05 00:29:06.803  WARN 13428 --- [RMI TCP Connection(11)-127.0.0.1] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [BufferPoolPruner-1-thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4.1/java.lang.Thread.run(Thread.java:833)
+2022-12-05 00:29:06.804  WARN 13428 --- [RMI TCP Connection(11)-127.0.0.1] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [cluster-ClusterId{value='638ced89c4dd73193b1f3cf1', description='null'}-localhost:27017] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4.1/sun.nio.ch.Net.poll(Native Method)
+ java.base@17.0.4.1/sun.nio.ch.NioSocketImpl.park(NioSocketImpl.java:181)
+ java.base@17.0.4.1/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:285)
+ java.base@17.0.4.1/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:309)
+ java.base@17.0.4.1/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+ java.base@17.0.4.1/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+ java.base@17.0.4.1/java.net.Socket$SocketInputStream.read(Socket.java:966)
+ app//com.mongodb.internal.connection.SocketStream.read(SocketStream.java:110)
+ app//com.mongodb.internal.connection.SocketStream.read(SocketStream.java:135)
+ app//com.mongodb.internal.connection.InternalStreamConnection.receiveResponseBuffers(InternalStreamConnection.java:713)
+ app//com.mongodb.internal.connection.InternalStreamConnection.receiveMessageWithAdditionalTimeout(InternalStreamConnection.java:571)
+ app//com.mongodb.internal.connection.InternalStreamConnection.receiveCommandMessageResponse(InternalStreamConnection.java:410)
+ app//com.mongodb.internal.connection.InternalStreamConnection.receive(InternalStreamConnection.java:369)
+ app//com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.lookupServerDescription(DefaultServerMonitor.java:221)
+ app//com.mongodb.internal.connection.DefaultServerMonitor$ServerMonitorRunnable.run(DefaultServerMonitor.java:157)
+ java.base@17.0.4.1/java.lang.Thread.run(Thread.java:833)
+2022-12-05 00:29:06.806  WARN 13428 --- [RMI TCP Connection(11)-127.0.0.1] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [cluster-rtt-ClusterId{value='638ced89c4dd73193b1f3cf1', description='null'}-localhost:27017] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4.1/java.lang.Thread.sleep(Native Method)
+ app//com.mongodb.internal.connection.DefaultServerMonitor.waitForNext(DefaultServerMonitor.java:443)
+ app//com.mongodb.internal.connection.DefaultServerMonitor.access$1500(DefaultServerMonitor.java:64)
+ app//com.mongodb.internal.connection.DefaultServerMonitor$RoundTripTimeRunnable.run(DefaultServerMonitor.java:415)
+ java.base@17.0.4.1/java.lang.Thread.run(Thread.java:833)
+2022-12-05 00:29:06.807  WARN 13428 --- [RMI TCP Connection(11)-127.0.0.1] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [MaintenanceTimer-2-thread-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.4.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.4.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.4.1/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.4.1/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.4.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.4.1/java.lang.Thread.run(Thread.java:833)
+2022-12-05 00:29:12.447  INFO 38080 --- [main] com.demo.mongodb.ApiConnectApplication   : Starting ApiConnectApplication using Java 17.0.4.1 on USHYDNIKHILGU6 with PID 38080 (C:\Users\nikhilgupta2\git\ElevanceProject\ElevanceProject\target\classes started by nikhilgupta2 in C:\Users\nikhilgupta2\git\ElevanceProject\ElevanceProject)
+2022-12-05 00:29:12.451  INFO 38080 --- [main] com.demo.mongodb.ApiConnectApplication   : The following 1 profile is active: "dev"
+2022-12-05 00:29:12.515  INFO 38080 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2022-12-05 00:29:12.515  INFO 38080 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Connect Timeout Exception on Url - http://localhost:8888. Will be trying the next url if available
+2022-12-05 00:29:12.516  WARN 38080 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Could not locate PropertySource ([ConfigServerConfigDataResource@595f4da5 uris = array<String>['http://localhost:8888'], optional = true, profiles = list['dev']]): I/O error on GET request for "http://localhost:8888/apiconnect/dev": Connection refused: no further information; nested exception is java.net.ConnectException: Connection refused: no further information
+2022-12-05 00:29:12.516  INFO 38080 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:8888
+2022-12-05 00:29:12.516  INFO 38080 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Connect Timeout Exception on Url - http://localhost:8888. Will be trying the next url if available
+2022-12-05 00:29:12.516  WARN 38080 --- [main] o.s.c.c.c.ConfigServerConfigDataLoader   : Could not locate PropertySource ([ConfigServerConfigDataResource@60e949e1 uris = array<String>['http://localhost:8888'], optional = true, profiles = list['dev']]): I/O error on GET request for "http://localhost:8888/apiconnect/dev": Connection refused: no further information; nested exception is java.net.ConnectException: Connection refused: no further information
+2022-12-05 00:29:13.844  INFO 38080 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-12-05 00:29:13.949  INFO 38080 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 98 ms. Found 2 MongoDB repository interfaces.
+2022-12-05 00:29:14.243  INFO 38080 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=dbf9b08e-6129-3af0-98ea-826162f2c7c6
+2022-12-05 00:29:14.835  INFO 38080 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-12-05 00:29:14.850  INFO 38080 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-05 00:29:14.851  INFO 38080 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-05 00:29:15.155  INFO 38080 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-05 00:29:15.155  INFO 38080 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2636 ms
+2022-12-05 00:29:15.675  INFO 38080 --- [main] org.mongodb.driver.client                : MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync|spring-boot", "version": "4.6.1"}, "os": {"type": "Windows", "name": "Windows 10", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Eclipse Adoptium/17.0.4.1+1"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, streamFactoryFactory=null, commandListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsCommandListener@205159dc], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.Jep395RecordCodecProvider@43c0c13a]}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='30000 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, sendBufferSize=0}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, sendBufferSize=0}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[io.micrometer.core.instrument.binder.mongodb.MongoMetricsConnectionPoolListener@731db93f], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=JAVA_LEGACY, serverApi=null, autoEncryptionSettings=null, contextProvider=null}
+2022-12-05 00:29:15.690  INFO 38080 --- [cluster-ClusterId{value='638cee038a7c301047807ff1', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:506}] to localhost:27017
+2022-12-05 00:29:15.691  INFO 38080 --- [cluster-rtt-ClusterId{value='638cee038a7c301047807ff1', description='null'}-localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:505}] to localhost:27017
+2022-12-05 00:29:15.691  INFO 38080 --- [cluster-ClusterId{value='638cee038a7c301047807ff1', description='null'}-localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=17, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=32633500}
+2022-12-05 00:29:16.671  INFO 38080 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2d4a0671, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1ab9c735, org.springframework.security.web.context.SecurityContextPersistenceFilter@63c4d16, org.springframework.security.web.header.HeaderWriterFilter@2f8f40cc, org.springframework.security.web.authentication.logout.LogoutFilter@300aa927, com.demo.mongodb.config.JwtRequestFilter@6cd66f6a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@174b8d0e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4627dfda, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6e4e60f5, org.springframework.security.web.session.SessionManagementFilter@5dce5c03, org.springframework.security.web.access.ExceptionTranslationFilter@252d8df6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@93fb44]
+2022-12-05 00:29:17.700  INFO 38080 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-12-05 00:29:17.836  INFO 38080 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-12-05 00:29:18.065  INFO 38080 --- [main] com.demo.mongodb.ApiConnectApplication   : Started ApiConnectApplication in 7.11 seconds (JVM running for 8.458)
+2022-12-05 00:29:18.889  INFO 38080 --- [RMI TCP Connection(9)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-05 00:29:18.890  INFO 38080 --- [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-05 00:29:18.893  INFO 38080 --- [RMI TCP Connection(9)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-12-05 00:29:27.732  WARN 38080 --- [http-nio-8080-exec-1] c.demo.mongodb.config.JwtRequestFilter   : JWT Token does not begin with Bearer String

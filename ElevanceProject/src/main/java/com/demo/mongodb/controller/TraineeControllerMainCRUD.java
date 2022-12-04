@@ -61,12 +61,29 @@ public class TraineeControllerMainCRUD {
 		return service.getAllTrainees();
 	}
 	
-	@GetMapping("/trainee/{tid}")
-	private ResponseEntity<TraineeResponse> getTraineeById(@PathVariable String tid) {
+//	@GetMapping("/trainee/{tid}")
+//	private ResponseEntity<TraineeResponse> getTraineeById(@PathVariable String tid) {
+//
+//		try {
+//			if(isValidNumber(tid))
+//				return service.getTraineebyID(Long.parseLong(tid));
+//			else
+//				throw new IllegalArgumentException(env.getProperty("IllegalNumberForm"));
+//			}
+//		catch(IllegalArgumentException e)
+//			{
+//				logger.error(e.getMessage());
+//				return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+//			} 
+//	}
+	
+	//TO get the id from request body instead of param or path variable
+	@GetMapping("/traineewithId")
+	private ResponseEntity<TraineeResponse> getTraineeById(@RequestBody TraineeDTO traineedto) {
 
 		try {
-			if(isValidNumber(tid))
-				return service.getTraineebyID(Long.parseLong(tid));
+			if(isValidNumber(traineedto.getId()))
+				return service.getTraineebyID(Long.parseLong(traineedto.getId()));
 			else
 				throw new IllegalArgumentException(env.getProperty("IllegalNumberForm"));
 			}

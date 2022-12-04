@@ -222,6 +222,59 @@ public class TraineeService implements TraineeServiceInterface {
 		} else
 			return new ResponseEntity<>(response, HttpStatus.PRECONDITION_FAILED);
 	}
+	
+	@Override
+	public ResponseEntity<TraineeResponse> getAllTraineesPagesFilter(int pnum, int psize, String sortDirection,
+			String sortParam, int gt) {
+
+		int i = 0;
+		TraineeResponse response = new TraineeResponse();
+		List<TraineeDTO> trList = new ArrayList<TraineeDTO>();
+		
+		try {
+			if (trepo.findByIdGreaterThan(gt).isEmpty())
+				throw new NoSuchElementException(GTERROR + gt);
+			
+
+			if (sortDirection.equalsIgnoreCase("DESC")) {
+				PageRequest pageRequest = PageRequest.of(pnum - 1, psize, Sort.by(Sort.Direction.DESC, sortParam));
+				List<TraineeDAO> traineeList = trepo.findByIdGreaterThan(gt,pageRequest);
+
+				for (TraineeDAO traineeA : traineeList) {
+
+					TraineeDTO tReturn = setDTO(traineeA);
+
+					trList.add(tReturn);
+				}
+
+				System.out.println(trList);
+
+				response.setTraineesList(trList);
+				return new ResponseEntity<>(response, HttpStatus.OK);
+			} else if (sortDirection.equalsIgnoreCase("ASC")) {
+				PageRequest pageRequest = PageRequest.of(pnum - 1, psize, Sort.by(Sort.Direction.ASC, sortParam));
+				List<TraineeDAO> traineeList = trepo.findByIdGreaterThan(gt,pageRequest);
+
+				for (TraineeDAO traineeA : traineeList) {
+					// TraineeDTO tReturn = new
+					// TraineeDTO(String.valueOf(traineeA.getId()),traineeA.getName(),traineeA.getLocation());
+					TraineeDTO tReturn = setDTO(traineeA);
+
+					trList.add(tReturn);
+				}
+
+				response.setTraineesList(trList);
+				return new ResponseEntity<>(response, HttpStatus.OK);
+			} else
+				return new ResponseEntity<>(response, HttpStatus.PRECONDITION_FAILED);
+		} catch (NoSuchElementException e) {
+			logger.error(e.getMessage());
+			return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+		}
+	}
+		
+		
+		
 
 	@Override
 	public ResponseEntity<TraineeResponse> getSortedTrainees(String sortDirection, String sortParam) {

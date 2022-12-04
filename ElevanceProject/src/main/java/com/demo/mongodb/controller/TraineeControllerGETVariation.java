@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.demo.mongodb.dto.TraineeResponse;
@@ -75,6 +76,34 @@ public class TraineeControllerGETVariation {
 				logger.error(e.getMessage());
 				return new ResponseEntity<>(response,HttpStatus.BAD_REQUEST);
 			}
+	}
+	
+	@GetMapping("/traineeWithPagesFilter")
+	private ResponseEntity<TraineeResponse> getTraineeWithPages(
+			@RequestParam(value="pageno", required=true, defaultValue ="1") String pn
+	, @RequestParam(value="pagesiz", required=true,defaultValue = "1") String ps
+	, @RequestParam(value="sortDirection", required=true,defaultValue = "ASC") String sortDirection
+	, @RequestParam(value="sortby", required=true,defaultValue = "id") String sortParam
+	, @RequestParam(value="gt", required=true,defaultValue = "1") String gt) {
+		
+		TraineeResponse response=new TraineeResponse();
+
+		try {
+			if(isValidNumber(pn)&&isValidNumber(ps)&&isValidNumber(gt))
+			{
+				if(dirnValidation(sortDirection))
+					throw new IllegalArgumentException(DIRERROR);
+				else
+					return service.getAllTraineesPagesFilter(Integer.parseInt(pn),Integer.parseInt(ps),sortDirection,sortParam,Integer.parseInt(gt));
+			}else 
+				throw new IllegalArgumentException(NUMBERFORM);
+
+		}
+		catch(IllegalArgumentException e)
+			{
+				logger.error(e.getMessage());
+				return new ResponseEntity<>(response,HttpStatus.BAD_REQUEST);
+		}
 	}
 	
 	// Get trainees with Dates greater than x
